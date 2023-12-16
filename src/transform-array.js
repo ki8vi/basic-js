@@ -23,7 +23,9 @@ function transform(arr) {
   for(let i = 0; i < resultArr.length; i++) {
     if(resultArr[i] === "--discard-next") {
       resultArr.splice(i, 1, null)
-      resultArr.splice(i + 1, 1, null)
+      if(resultArr[i + 1]) {
+        resultArr.splice(i + 1, 1, null)
+      }
     }
     
     if(resultArr[i] === "--discard-prev") {
@@ -34,11 +36,16 @@ function transform(arr) {
     }
     if(resultArr[i] === "--double-next") {
       resultArr.splice(i, 1, null)
-      resultArr.splice(i + 1, 0, resultArr[i + 1])
+      if(resultArr[i + 1]) {
+        resultArr.splice(i + 1, 0, resultArr[i + 1])
+      }
+      
     }
     if(resultArr[i] === "--double-prev") {
       resultArr.splice(i, 1, null)
-      resultArr.splice(i - 1, 0, resultArr[i - 1])
+      if(resultArr[i - 1]) {
+        resultArr.splice(i - 1, 0, resultArr[i - 1])
+      }
     }
     
   }
