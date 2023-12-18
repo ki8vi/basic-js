@@ -18,7 +18,7 @@ function isMAC48Address(inputString) {
   const cleanInput = inputString.replace(/[-]/g, "");
   let isFalse = true;
   for(let i = 0; i < cleanInput.length; i++) {
-    if(!/[0-9A-F]/g.test(cleanInput[i])) {
+    if(!/[0-9A-F]/.test(cleanInput[i])) {
       isFalse = false;
       break
     } 
